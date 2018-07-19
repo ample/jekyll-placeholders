@@ -12,22 +12,25 @@ module Jekyll
         site.collections.each do |type, collection|
           collection.docs.each do |doc|
 
-            tpl = get_template(type)
-            tokens = get_symbols(tpl)
-
-            unless (tokens - doc.url_placeholders.keys).empty?
-              url = ::Jekyll::URL.new({
-                :template     => slugify_tpl(tpl, tokens),
-                :placeholders => get_placeholders(tokens, doc)
-              }).to_s
-              doc.instance_variable_set('@url', url)
-            end
+            set_url!(doc, type)
 
           end if site.config.dig('collections', type).keys.include? 'permalink'
         end
       end
 
       private
+
+        def set_url!(doc, type)
+          tpl = get_template(type)
+          tokens = get_symbols(tpl)
+          unless (tokens - doc.url_placeholders.keys).empty?
+            url = ::Jekyll::URL.new({
+              :template     => slugify_tpl(tpl, tokens),
+              :placeholders => get_placeholders(tokens, doc)
+            }).to_s
+            doc.instance_variable_set('@url', url)
+          end
+        end
 
         def get_template(type)
           @site.config.dig('collections', type, 'permalink')

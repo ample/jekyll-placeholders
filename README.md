@@ -59,7 +59,7 @@ You can achieve the same result by configuring your collection permalink, like t
 collections:
   articles:
     output: true
-    permalink: /articles/(:categories/0/:slug)/:slug
+    permalink: /articles/(:categories/:0/:slug)/:slug
 ```
 
 When the project is built, the document referenced above will be rendered to the following path...
