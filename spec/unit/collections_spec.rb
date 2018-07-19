@@ -3,13 +3,13 @@ require 'spec_helper'
 describe Jekyll::Placeholders::Collections do
 
   before do
-    @base = FileUtils.pwd
-    @site = JekyllHelper.scaffold
+    @base = File.expand_path('./spec/dummy')
+    @site = JekyllHelper.scaffold(base_path: @base, collections: %w(podcasts))
     @collections = Jekyll::Placeholders::Collections.new(@site)
   end
 
   it 'should parse string and return any symbols' do
-    expect(@collections.send(:get_symbols, '/some/:string/with/:symbols')).to eq(['string', 'symbols'])
+    expect(@collections.send(:get_symbols, '/some/:string/with/:symbols')).to eq([':string', ':symbols'])
   end
 
   it 'should return permalink template for a collection' do

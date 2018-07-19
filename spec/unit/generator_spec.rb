@@ -4,8 +4,8 @@ describe Jekyll::Placeholders::Generator do
 
   before do
     @site = JekyllHelper.scaffold(
-      base_path: File.expand_path('../../../../../spec/source', __dir__),
-      collections_dir: File.expand_path('../../../../../spec/source/collections', __dir__),
+      base_path: File.expand_path('./spec/dummy'),
+      collections_dir: File.expand_path('./spec/dummy/collections'),
       collections: %w(podcasts episodes)
     )
     @generator = Jekyll::Placeholders::Generator.new

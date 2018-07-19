@@ -1,0 +1,44 @@
+collections_dir: collections
+
+collections:
+  podcasts:
+    output: true
+    permalink: /:collection/:slug
+  episodes:
+    output: true
+    permalink: /podcasts/:podcast_slug/:slug
+
+
+contentful:
+  podcasts:
+    id: podcast
+    body: description
+    frontmatter:
+      title: title
+      subtitle: subtitle
+      image: image/url
+      background: bg_image/url
+      authors: author/full_name
+      apple_podcasts_url: apple_podcasts_url
+      google_play_url: google_play_url
+      stitcher_url: stitcher_url
+      slug: slug
+  episodes:
+    id: episode
+    body: description
+    filename: "{{ episode_number }}-{{ slug }}"
+    frontmatter:
+      title: title
+      episode_number: episode_number
+      season_number: season_number
+      date: published_at
+      podcast: podcast/title
+      podcast_slug: podcast/slug
+      image: podcast/image/url
+      slug: slug
+      topic: category/title
+      tags: tags/title
+      show_notes: show_notes
+      transcription: transcription
+      audio_duration: audio_duration
+      audio_embed_code: audio_embed_code

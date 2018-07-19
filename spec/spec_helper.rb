@@ -1,3 +1,7 @@
 require 'rspec'
+require 'pry'
+require 'bundler/setup'
+Bundler.setup
 require 'jekyll-placeholders'
-require_relative '../../../../spec/support/jekyll_helper'
+
+Dir['./spec/support/**/*.rb'].each { |f| require f }
