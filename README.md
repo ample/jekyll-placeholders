@@ -1,6 +1,6 @@
 # jekyll-placeholders
 
-[![Build Status](https://travis-ci.org/ample/jekyll-placeholder.svg?branch=master)](https://travis-ci.org/ample/jekyll-placeholder)
+[![Build Status](https://travis-ci.org/ample/jekyll-placeholders.svg?branch=master)](https://travis-ci.org/ample/jekyll-placeholders)
 
 This gem makes Jekyll a little more self-aware. By default, Jekyll's support for defining collection permalinks is limited to [a few placeholder values](https://jekyllrb.com/docs/permalinks/#template-variables). When building complex layouts with nested URLs, this gem exposes any key/value pair defined in document frontmatter such that you can use them when defining your collection permalinks.
 
