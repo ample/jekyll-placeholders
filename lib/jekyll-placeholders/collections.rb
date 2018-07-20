@@ -41,13 +41,13 @@ module Jekyll
         end
 
         def get_placeholders(tokens, doc)
-          Hash[ *tokens.collect{|v|
+          Hash[ tokens.collect{|v|
             if v[0] == ':'
               [ v[1..-1], doc.data.dig(v[1..-1]) ]
             else
               [ slugify_token(v), deep_dig(doc, v) ]
             end
-          }.flatten ].
+          } ].
           merge(doc.url_placeholders).
           each_with_object({}){|(k,v), h| h[k.to_sym] = v }
         end
