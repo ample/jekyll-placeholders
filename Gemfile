@@ -6,7 +6,7 @@ gem 'rake'
 
 group :development do
   gem 'pry'
-  gem 'jekyll', '~> 3.7.2'
+  gem 'jekyll', '~> 4.0.0'
   gem 'dotenv'
 end
 
